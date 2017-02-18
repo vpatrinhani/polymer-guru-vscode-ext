@@ -1,0 +1,72 @@
+{
+  "name": "polymer-guru",
+  "displayName": "polymer-guru",
+  "description": "Polymer Guru",
+  "version": "0.0.1",
+  "publisher": "vpatrinhani",
+  "engines": {
+    "vscode": "^1.5.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:.polymer-guru.json",
+    "onCommand:polyguru.init",
+    "onCommand:polyguru.checkComponents",
+    "onCommand:polyguru.viewDashboard"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "polyguru.init",
+        "title": "Polymer Guru: Init"
+      },
+      {
+        "command": "polyguru.checkComponents",
+        "title": "Polymer Guru: Check Components"
+      },
+      {
+        "command": "polyguru.viewDashboard",
+        "title": "Polymer Guru: View Dashboard"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "dependencies": {
+    "@types/globule": "^1.1.0",
+    "@types/html-minifier": "^1.1.30",
+    "@types/htmlparser2": "^3.7.29",
+    "@types/sanitize-html": "^1.13.31",
+    "@types/string": "0.0.28",
+    "domhandler": "^2.3.0",
+    "fast-html-parser": "^1.0.1",
+    "globule": "^1.1.0",
+    "html-minifier": "^3.3.1",
+    "html-tag-parser": "^1.0.0",
+    "html5": "^1.0.5",
+    "htmlparser2": "^3.9.2",
+    "jsdom": "^9.10.0",
+    "json-query": "^2.2.0",
+    "lodash.flatmapdeep": "^4.10.0",
+    "lodash.flattendeep": "^4.4.0",
+    "lodash.template": "^4.4.0",
+    "sanitize-html": "^1.14.1",
+    "semantic-ui": "^2.2.7",
+    "simple-object-query": "^1.6.0",
+    "string": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.32",
+    "@types/node": "^6.0.40",
+    "mocha": "^2.3.3",
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0"
+  }
+}

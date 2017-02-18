@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/5bc6bd90add66f6ba740837a1413ea2d3d4a2620/semantic-ui/index.d.ts",
+    "raw": "registry:dt/semantic-ui#2.2.0+20170126123915",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/5bc6bd90add66f6ba740837a1413ea2d3d4a2620/semantic-ui/index.d.ts"
+  }
+}

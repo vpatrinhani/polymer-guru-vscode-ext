@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "semantic-ui": "registry:dt/semantic-ui#2.2.0+20170126123915"
+  }
+}

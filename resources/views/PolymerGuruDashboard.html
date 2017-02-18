@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="../../node_modules/semantic-ui/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css" >
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="ui pointing menu container">
+      <a class="active item">
+        Polymer Guru - Dashboard
+      </a>
+    </div>
+    <div class="ui stackable one column grid container">
+        <div class="column">
+          <div class="ui segment">
+            <a class="ui blue ribbon label component-segment-label">App Components (<%= appComponents.length %>)</a>
+            <div class="ui justified container list-components">
+              <table class="ui small striped selectable celled compact table">
+                <thead>
+                  <tr>
+                    <th>File</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i < appComponents.length; i++) { %>
+                    <% var resComp = appComponents[i]; %>
+                    <tr>
+                      <td>
+                        <a href="<%= resComp.filePath.previewUri %>">
+                          <i class="html5 icon"></i>
+                          <%= resComp.filePath.relativePath %>
+                        </a>
+                      </td>
+                      <td>
+                        <div class="ui small labels">
+                          <div class="ui label" data-tooltip="<<%= resComp.componentName %>>" data-position="left center">
+                            <i class="code icon"></i>
+                          </div>
+                          <div class="ui label" data-tooltip="Link imports" data-position="left center">
+                            <i class="sitemap icon"></i>
+                            <%= resComp.linkImports.length %>
+                          </div>
+                          <div class="ui label" data-tooltip="Using elements" data-position="left center">
+                            <i class="sign in icon"></i>
+                            <%= resComp.usingComponentRefs.length %>
+                          </div>
+                          <div class="ui label" data-tooltip="Used by" data-position="left center">
+                            <i class="sign out icon"></i>
+                            0
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <a class="ui orange ribbon label component-segment-label">External Components (<%= externalComponents.length %>)</a>
+            <div class="ui justified container list-components">
+              <table class="ui small striped selectable celled compact table">
+                <thead>
+                  <tr>
+                    <th>File</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i < externalComponents.length; i++) { %>
+                    <% var resComp = externalComponents[i]; %>
+                    <tr>
+                      <td>
+                        <a href="<%= resComp.filePath.previewUri %>">
+                          <i class="html5 icon"></i>
+                          <%= resComp.filePath.relativePath %>
+                        </a>
+                      </td>
+                      <td>
+                        <div class="ui small labels">
+                          <div class="ui label" data-tooltip="<<%= resComp.componentName %>>" data-position="left center">
+                            <i class="code icon"></i>
+                          </div>
+                          <div class="ui label" data-tooltip="Link imports" data-position="left center">
+                            <i class="sitemap icon"></i>
+                            <%= resComp.linkImports.length %>
+                          </div>
+                          <div class="ui label" data-tooltip="Using elements" data-position="left center">
+                            <i class="sign in icon"></i>
+                            0
+                          </div>
+                          <div class="ui label" data-tooltip="Used by" data-position="left center">
+                            <i class="sign out icon"></i>
+                            0
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <script src="../../node_modules/semantic-ui/dist/semantic.min.js"></script>
+    <script src="scripts/PolymerGuruDashboard/main.js"></script>
+  </body>
+</html>
