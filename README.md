@@ -1,5 +1,5 @@
 # polymer-guru
-Visual Studio Code Extension developed by a Polymer Dev to Polymer Devs!
+Visual Studio Code Extension developed by a Polymer Dev for Polymer Devs!
 
 # README
 
