@@ -60,6 +60,12 @@ export function activate(context: vscode.ExtensionContext) {
     });
     let registrationViewDashboard = vscode.workspace.registerTextDocumentContentProvider(PolymerGuruDashboardDocument.schema, providerViewDashboard);
     let disposableViewDashboard = vscode.commands.registerCommand('polyguru.viewDashboard', () => {    
+        if (!PolyGuruContext.Instance.componentsCheckedAtLeastOnce) {
+            return PolyGuruContext.Instance.checkComponents().then(() => {
+                return PolyGuruContext.Instance.viewDashboard();
+            });   
+        }
+
         return PolyGuruContext.Instance.viewDashboard();
     });
     context.subscriptions.push(disposableViewDashboard, registrationViewDashboard);

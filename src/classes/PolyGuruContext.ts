@@ -19,13 +19,20 @@ export class PolyGuruContext {
   }
 
   private _polymerGuruNotifier: PolyGuruNotifier;
+  private _checkComponents_lastStarted: Number;
+  private _checkComponents_lastFinished: Number;
 
   private constructor() {
     this.cache.loadConfig();
     this._polymerGuruNotifier = new PolyGuruNotifier();
   }
 
+  public get componentsCheckedAtLeastOnce(): Boolean {
+    return (this._checkComponents_lastFinished) ? true : false;
+  }
+
   public checkComponents(): Thenable<any> {
+    this._checkComponents_lastStarted = Date.now();
     this._polymerGuruNotifier.notifyCheckingComponents();
 
     this.cache.clearFailedResources();
@@ -36,6 +43,7 @@ export class PolyGuruContext {
       FileParserHelper.parseExternalComponents(),
     ]).then(() => {
       this._polymerGuruNotifier.notifyCheckComponentsMetrics();
+      this._checkComponents_lastFinished = Date.now();
     });
   }
 
