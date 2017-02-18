@@ -5,6 +5,7 @@ import { FilePath } from '../io/FilePath';
 import * as objQuery from 'simple-object-query';
 import * as flatMapDeep from 'lodash.flatmapdeep';
 import * as htmlparser from 'htmlparser2';
+import * as DomHandler from 'domhandler';
 import { minify } from 'html-minifier';
 
 import { CacheStorage } from '../storages/CacheStorage';
@@ -169,7 +170,7 @@ export class HTMLFileParser extends FileParser {
             removeComments: true
           });
 
-          var handler = new htmlparser.DomHandler((error, dom) => {
+          var handler = new DomHandler((error, dom) => {
             if (!error) {
               this.domInfo = dom;
               this._readEssentialDomInfo();

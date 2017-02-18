@@ -9,10 +9,22 @@
         "sourceMap": true,
         "rootDir": ".",
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "types": [
+            // add node as an option
+            "node"
+         ],
+        "typeRoots": [
+            // add path to @types
+            "node_modules/@types",
+            "typings"
+         ]
     },
     "exclude": [
-        "node_modules",
+        "node_modules/**/*",
+        "out",
+        "typings",
+        "test",
         ".vscode-test"
     ]
 }

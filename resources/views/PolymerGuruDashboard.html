@@ -32,16 +32,13 @@
                     <% var resComp = appComponents[i]; %>
                     <tr>
                       <td>
-                        <a href="<%= resComp.filePath.previewUri %>">
-                          <i class="html5 icon"></i>
+                        <a class="ui basic blue label" href="<%= resComp.filePath.previewUri %>"  data-tooltip="<<%= resComp.componentName %>>" data-position="right center">
+                          <i class="code icon"></i>
                           <%= resComp.filePath.relativePath %>
                         </a>
                       </td>
                       <td>
                         <div class="ui small labels">
-                          <div class="ui label" data-tooltip="<<%= resComp.componentName %>>" data-position="left center">
-                            <i class="code icon"></i>
-                          </div>
                           <div class="ui label" data-tooltip="Link imports" data-position="left center">
                             <i class="sitemap icon"></i>
                             <%= resComp.linkImports.length %>
@@ -79,16 +76,13 @@
                     <% var resComp = externalComponents[i]; %>
                     <tr>
                       <td>
-                        <a href="<%= resComp.filePath.previewUri %>">
-                          <i class="html5 icon"></i>
+                        <a class="ui basic orange label" href="<%= resComp.filePath.previewUri %>"  data-tooltip="<<%= resComp.componentName %>>" data-position="right center">
+                          <i class="code icon"></i>
                           <%= resComp.filePath.relativePath %>
                         </a>
                       </td>
                       <td>
                         <div class="ui small labels">
-                          <div class="ui label" data-tooltip="<<%= resComp.componentName %>>" data-position="left center">
-                            <i class="code icon"></i>
-                          </div>
                           <div class="ui label" data-tooltip="Link imports" data-position="left center">
                             <i class="sitemap icon"></i>
                             <%= resComp.linkImports.length %>

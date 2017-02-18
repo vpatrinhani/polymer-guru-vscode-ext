@@ -44,6 +44,7 @@
     "@types/html-minifier": "^1.1.30",
     "@types/htmlparser2": "^3.7.29",
     "@types/sanitize-html": "^1.13.31",
+    "@types/semantic-ui": "^2.2.0",
     "@types/string": "0.0.28",
     "domhandler": "^2.3.0",
     "fast-html-parser": "^1.0.1",
@@ -64,7 +65,7 @@
   },
   "devDependencies": {
     "@types/mocha": "^2.2.32",
-    "@types/node": "^6.0.40",
+    "@types/node": "^6.0.63",
     "mocha": "^2.3.3",
     "typescript": "^2.0.3",
     "vscode": "^1.0.0"
