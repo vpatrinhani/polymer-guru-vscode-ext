@@ -5,6 +5,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as objQuery from 'simple-object-query';
 import * as Data from '../data/PolyGuruConfig';
+import * as _orderBy from 'lodash.orderby';
 
 import { FileParser } from '../parsers/FileParser';
 import { HTMLFileParser } from '../parsers/HTMLFileParser';
@@ -27,22 +28,50 @@ export class CacheStorage {
   }
 
   private _listAppComponents: HTMLFileParser[] = [];
+  private _listAppComponentsOrdered: HTMLFileParser[] = null;
   private _listExtLibComponents: HTMLFileParser[] = [];
+  private _listExtLibComponentsOrdered: HTMLFileParser[] = null;
   private _listOtherResources: FileParser[] = [];
   private _listFailedResources: { fileParser: FileParser, error: any }[] = [];
 
   public get appComponents(): HTMLFileParser[] {
     return this._listAppComponents;
   }
+
+  public get appComponentsOrdered(): HTMLFileParser[] {
+    if (!this._listAppComponentsOrdered) {
+      this._listAppComponentsOrdered = _orderBy(this.appComponents, (d) => {
+        return d.filePath.relativePath;
+      });
+    }
+    return this._listAppComponentsOrdered;
+  }
+
   public clearAppComponents() {
     this._listAppComponents = [];
+    this.clearAppComponentsOrderedCacheList();
+  }
+  public clearAppComponentsOrderedCacheList() {
+    this._listAppComponentsOrdered = null;
   }
 
   public get externalComponents(): HTMLFileParser[] {
     return this._listExtLibComponents;
   }
+  public get externalComponentsOrdered(): HTMLFileParser[] {
+    if (!this._listExtLibComponentsOrdered) {
+      this._listExtLibComponentsOrdered = _orderBy(this.externalComponents, (d) => {
+        return d.filePath.relativePath;
+      });
+    }
+    return this._listExtLibComponentsOrdered;
+  }
   public clearExternalComponents() {
     this._listExtLibComponents = [];
+    this.clearExternalComponentsOrderedCacheList();
+  }
+  public clearExternalComponentsOrderedCacheList() {
+    this._listExtLibComponentsOrdered = null;
   }
 
   public get otherResources(): FileParser[] {

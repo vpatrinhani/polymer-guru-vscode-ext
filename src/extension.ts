@@ -47,15 +47,17 @@ export function activate(context: vscode.ExtensionContext) {
 
     let disposableCheckComponents = vscode.commands.registerCommand('polyguru.checkComponents', () => {        
         if (PolyGuruContext.isEnabled) {
-            PolyGuruContext.Instance.checkComponents();
+            PolyGuruContext.Instance.checkComponents().then(() => {
+                providerViewDashboard.update(PolymerGuruDashboardDocument.uri);
+            });
         }
     });
     context.subscriptions.push(disposableCheckComponents);
 
     let providerViewDashboard = new PolymerGuruDashboardDocument(() => {
         return {
-            appComponents: PolyGuruContext.Instance.cache.appComponents,
-            externalComponents: PolyGuruContext.Instance.cache.externalComponents
+            appComponents: PolyGuruContext.Instance.cache.appComponentsOrdered,
+            externalComponents: PolyGuruContext.Instance.cache.externalComponentsOrdered
         }
     });
     let registrationViewDashboard = vscode.workspace.registerTextDocumentContentProvider(PolymerGuruDashboardDocument.schema, providerViewDashboard);

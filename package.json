@@ -57,6 +57,8 @@
     "json-query": "^2.2.0",
     "lodash.flatmapdeep": "^4.10.0",
     "lodash.flattendeep": "^4.4.0",
+    "lodash.orderby": "^4.6.0",
+    "lodash.sortby": "^4.7.0",
     "lodash.template": "^4.4.0",
     "sanitize-html": "^1.14.1",
     "semantic-ui": "^2.2.7",

@@ -16,6 +16,16 @@ export class PolymerGuruDashboardDocument implements vscode.TextDocumentContentP
   public static schema: string = 'polymer-guru-dashboard';
   public static uri: vscode.Uri = vscode.Uri.parse(PolymerGuruDashboardDocument.schema + '://main');
 
+  private _onDidChange = new vscode.EventEmitter<vscode.Uri>();
+
+  get onDidChange(): vscode.Event<vscode.Uri> {
+    return this._onDidChange.event;
+  }
+
+  public update(uri: vscode.Uri) {
+    this._onDidChange.fire(uri);
+  }
+  
   private _getTemplateDataCallback: () => PolymerGuruDashboardDocumentTemplate;
 
   constructor(getTemplateDataCallback? : () => PolymerGuruDashboardDocumentTemplate) {    
